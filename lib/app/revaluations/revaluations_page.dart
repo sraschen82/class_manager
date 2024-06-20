@@ -1,4 +1,10 @@
+import 'package:asp/asp.dart';
+import 'package:class_manager_two/app/comum/my_colors.dart';
+import 'package:class_manager_two/app/comum/pdf/pdf_view.dart';
+import 'package:class_manager_two/app/home_page/atoms/page_status_atoms.dart';
 import 'package:class_manager_two/app/home_page/home_page_states.dart';
+import 'package:class_manager_two/app/my_classes/atoms/class_atoms.dart';
+import 'package:class_manager_two/app/my_classes/atoms/class_page_atoms.dart';
 import 'package:class_manager_two/app/my_classes/class_routes.dart';
 import 'package:class_manager_two/app/revaluations/widgets/discipline_widget.dart';
 import 'package:class_manager_two/app/revaluations/widgets/empty_revaluations_widget.dart';
@@ -6,11 +12,6 @@ import 'package:class_manager_two/app/revaluations/widgets/final_reevaluation_wi
 import 'package:class_manager_two/app/revaluations/widgets/final_results.dart';
 import 'package:class_manager_two/app/revaluations/widgets/students_in_revaluation_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:asp/asp.dart';
-import 'package:class_manager_two/app/comum/my_colors.dart';
-import 'package:class_manager_two/app/home_page/atoms/page_status_atoms.dart';
-import 'package:class_manager_two/app/my_classes/atoms/class_atoms.dart';
-import 'package:class_manager_two/app/my_classes/atoms/class_page_atoms.dart';
 
 class RevaluationPage extends StatefulWidget {
   const RevaluationPage({super.key});
@@ -73,7 +74,7 @@ class _RevaluationPageState extends State<RevaluationPage> {
                     const Center(
                         child: Card(
                             elevation: 15,
-                            margin: EdgeInsets.only(left: 60),
+                            margin: EdgeInsets.only(left: 10),
                             color: Color.fromARGB(255, 163, 13, 3),
                             child: Padding(
                               padding: EdgeInsets.all(8.0),
@@ -83,6 +84,16 @@ class _RevaluationPageState extends State<RevaluationPage> {
                                     fontSize: 30, fontWeight: FontWeight.bold),
                               ),
                             ))),
+                    IconButton(
+                        onPressed: () {
+                          if (selectedDisciplineAtom.value != null) {
+                            pdfViewDIalog(
+                                context: context,
+                                discipline: selectedDisciplineAtom.value!);
+                          }
+                        },
+                        tooltip: 'PDF',
+                        icon: const Icon(Icons.upload_file)),
                     IconButton(
                       onPressed: () {
                         pageStatusAtom.setValue(PageStates.HOME_PAGE);
@@ -100,8 +111,6 @@ class _RevaluationPageState extends State<RevaluationPage> {
               ? disciplineWidget(context, userDisciplinesAtom.value,
                   selectedDisciplineAtom.value!)
               : const Text(''),
-          // disciplineWidget(context, userDisciplinesAtom.value,
-          //     selectedDisciplineAtom.value!),
           Flexible(
             flex: 20,
             child: userDisciplinesAtom.value.isEmpty
