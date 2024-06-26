@@ -1,15 +1,15 @@
 import 'dart:io';
 
-import 'package:class_manager_two/app/comum/pdf/pdf_class.dart';
+import 'package:class_manager_two/app/comum/pdf/pdf_class_report.dart';
 import 'package:class_manager_two/app/my_classes/models/discipline.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_pdfview/flutter_pdfview.dart';
 import 'package:share_extend/share_extend.dart';
 
-Future<void> pdfViewDIalog(
+Future<void> pdfClassReportPreView(
     {required BuildContext context, required Discipline discipline}) async {
   String pdfPath = '';
-  Future<File> viewFile = PDF().createPDF(fileName: discipline.name);
+  Future<File> viewFile = PdfClassReport().createPDF(fileName: discipline.name);
   viewFile.then((value) => pdfPath = value.path);
 
   return showDialog(
@@ -18,7 +18,7 @@ Future<void> pdfViewDIalog(
         return AlertDialog(
           insetPadding: EdgeInsets.zero,
           actionsAlignment: MainAxisAlignment.center,
-          title: const Center(child: Text('PDF VIEW')),
+          title: const Center(child: Text('PDF Preview')),
           content: SingleChildScrollView(
               child: Column(
             children: [
@@ -29,7 +29,8 @@ Future<void> pdfViewDIalog(
                 width: 273,
                 child: Center(
                   child: FutureBuilder(
-                    future: PDF().createPDF(fileName: discipline.name),
+                    future:
+                        PdfClassReport().createPDF(fileName: discipline.name),
                     builder: (context, snapshot) {
                       List<Widget> children;
 
@@ -44,24 +45,11 @@ Future<void> pdfViewDIalog(
                               swipeHorizontal: true,
                               autoSpacing: false,
                               pageFling: false,
-                              // onRender: (_pages) {
-                              //   setState(() {
-                              //     pages = _pages;
-                              //     isReady = true;
-                              //   });
+                              // onError: (error) {
+                              //   print(error.toString());
                               // },
-                              onError: (error) {
-                                print(error.toString());
-                              },
-                              onPageError: (page, error) {
-                                print('$page: ${error.toString()}');
-                              },
-                              // onViewCreated:
-                              //     (PDFViewController pdfViewController) {
-                              //   _controller.complete(pdfViewController);
-                              // },
-                              // onPageChanged: (int page, int total) {
-                              //   print('page change: $page/$total');
+                              // onPageError: (page, error) {
+                              //   print('$page: ${error.toString()}');
                               // },
                             ),
                           ),

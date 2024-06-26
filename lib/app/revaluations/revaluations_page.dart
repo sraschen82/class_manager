@@ -1,6 +1,6 @@
 import 'package:asp/asp.dart';
 import 'package:class_manager_two/app/comum/my_colors.dart';
-import 'package:class_manager_two/app/comum/pdf/pdf_view.dart';
+import 'package:class_manager_two/app/comum/pdf/pdf_class_report_preview.dart';
 import 'package:class_manager_two/app/home_page/atoms/page_status_atoms.dart';
 import 'package:class_manager_two/app/home_page/home_page_states.dart';
 import 'package:class_manager_two/app/my_classes/atoms/class_atoms.dart';
@@ -84,16 +84,6 @@ class _RevaluationPageState extends State<RevaluationPage> {
                                     fontSize: 30, fontWeight: FontWeight.bold),
                               ),
                             ))),
-                    IconButton(
-                        onPressed: () {
-                          if (selectedDisciplineAtom.value != null) {
-                            pdfViewDIalog(
-                                context: context,
-                                discipline: selectedDisciplineAtom.value!);
-                          }
-                        },
-                        tooltip: 'PDF',
-                        icon: const Icon(Icons.upload_file)),
                     IconButton(
                       onPressed: () {
                         pageStatusAtom.setValue(PageStates.HOME_PAGE);
