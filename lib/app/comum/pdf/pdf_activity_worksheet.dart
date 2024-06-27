@@ -1,5 +1,4 @@
 import 'dart:io';
-import 'dart:ui';
 
 import 'package:class_manager_two/app/auth/auth_atoms.dart';
 import 'package:class_manager_two/app/my_classes/atoms/class_atoms.dart';
@@ -30,31 +29,6 @@ class PdfActivityWorkSheet {
 
     return file;
   }
-
-  // pw.Widget _header(pw.Context context) {
-  //   return pw.Container(
-  //       height: 30,
-  //       child: pw.Center(
-  //         child: pw.Text(
-  //           'Class Report - ${selectedDisciplineAtom.value!.name}',
-  //           style: const pw.TextStyle(
-  //             fontSize: 20,
-  //           ),
-  //         ),
-  //       ));
-  // }
-
-  // pw.Widget _footer(pw.Context context) {
-  //   return pw.Container(
-  //       height: 30,
-  //       child: pw.Row(
-  //           mainAxisAlignment: pw.MainAxisAlignment.spaceEvenly,
-  //           children: [
-  //             pw.Text('Class Manager II - Developed by @sraschen'),
-  //             pw.Text(
-  //                 DateFormat('dd/MM/yyyy  kk:mm:ss').format(DateTime.now())),
-  //           ]));
-  // }
 
   _buildContent(pw.Context context) => pdfPages();
 }
@@ -126,6 +100,11 @@ List<pw.Widget> pdfPages() {
 
 pw.Widget pdfPageInfo(Classes disciplineClass) {
   List<Student> classStudents = disciplineClass.student.toList();
+  if (classStudents.isNotEmpty) {
+    classStudents.sort(
+      (a, b) => a.name.compareTo(b.name),
+    );
+  }
   return pw.Column(children: [
     for (int i = 0; i < 3; i++)
       pw.Container(

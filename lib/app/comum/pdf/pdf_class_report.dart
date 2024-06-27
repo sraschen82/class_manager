@@ -71,6 +71,11 @@ List<pw.Widget> pdfPages() {
 
 pw.Widget pdfPageInfo(Classes disciplineClass) {
   List<Student> classStudents = disciplineClass.student.toList();
+  if (classStudents.isNotEmpty) {
+    classStudents.sort(
+      (a, b) => a.name.compareTo(b.name),
+    );
+  }
   return pw.Container(
       decoration: pw.BoxDecoration(border: pw.Border.all()),
       height: PdfPageFormat.a4.availableHeight * .9,

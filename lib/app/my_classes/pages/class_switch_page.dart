@@ -1,6 +1,5 @@
 import 'package:asp/asp.dart';
 import 'package:class_manager_two/app/comum/my_colors.dart';
-import 'package:class_manager_two/app/comum/pdf/pdf_class_report_preview.dart';
 import 'package:class_manager_two/app/comum/show_alert.dart';
 import 'package:class_manager_two/app/home_page/atoms/page_status_atoms.dart';
 import 'package:class_manager_two/app/home_page/home_page_states.dart';
@@ -15,7 +14,6 @@ import 'package:class_manager_two/app/my_classes/pages/initial_class_page.dart';
 import 'package:class_manager_two/app/my_classes/pages/select_class_page.dart';
 import 'package:class_manager_two/app/my_classes/widgets/create_documents_dialog.dart';
 import 'package:class_manager_two/app/my_classes/widgets/edit_student.dart';
-
 import 'package:flutter/material.dart';
 
 class ClassSwitchPage extends StatefulWidget {
@@ -66,17 +64,6 @@ class _ClassSwitchPageState extends State<ClassSwitchPage> {
                       ),
                       Row(
                         children: [
-                          // IconButton(
-                          //     onPressed: () {
-                          //       if (selectedDisciplineAtom.value != null) {
-                          //         pdfViewDIalog(
-                          //             context: context,
-                          //             discipline:
-                          //                 selectedDisciplineAtom.value!);
-                          //       }
-                          //     },
-                          //     tooltip: 'PDF',
-                          //     icon: const Icon(Icons.upload_file)),
                           IconButton(
                               onPressed: () => createDocumentsDialog(context),
                               tooltip: 'Create Documents',
@@ -88,19 +75,13 @@ class _ClassSwitchPageState extends State<ClassSwitchPage> {
                                 message:
                                     'Upon confirmation, all records from "My Classes" will be deleted. Do you want to continue?',
                                 okButton: 'Yes',
+                                // ignore: void_checks
                                 action: clearDiscilinesAction),
                             icon: const Icon(
                               Icons.folder_delete,
                               semanticLabel: 'Discipline',
                             ),
                           ),
-                          // IconButton(
-                          //   onPressed: () => clearDiscilinesAction(),
-                          //   icon: const Icon(
-                          //     Icons.folder_delete,
-                          //     semanticLabel: 'Discipline',
-                          //   ),
-                          // ),
                           IconButton(
                             onPressed: () {
                               pageStatusAtom.setValue(PageStates.HOME_PAGE);

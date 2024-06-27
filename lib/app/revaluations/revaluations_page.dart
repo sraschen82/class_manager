@@ -1,6 +1,5 @@
 import 'package:asp/asp.dart';
 import 'package:class_manager_two/app/comum/my_colors.dart';
-import 'package:class_manager_two/app/comum/pdf/pdf_class_report_preview.dart';
 import 'package:class_manager_two/app/home_page/atoms/page_status_atoms.dart';
 import 'package:class_manager_two/app/home_page/home_page_states.dart';
 import 'package:class_manager_two/app/my_classes/atoms/class_atoms.dart';

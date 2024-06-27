@@ -1,7 +1,6 @@
 import 'dart:io';
 
 import 'package:class_manager_two/app/comum/pdf/pdf_activity_worksheet.dart';
-import 'package:class_manager_two/app/comum/pdf/pdf_class_report.dart';
 import 'package:class_manager_two/app/my_classes/models/discipline.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_pdfview/flutter_pdfview.dart';
