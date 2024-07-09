@@ -114,9 +114,6 @@ class _FinalResultsState extends State<FinalResults> {
                                                   .length)
                                           .toDouble(),
                                       child: ListView.builder(
-                                          // addAutomaticKeepAlives: true,
-                                          // addRepaintBoundaries: true,
-                                          // shrinkWrap: true,
                                           physics:
                                               const NeverScrollableScrollPhysics(),
                                           itemCount: students
@@ -132,7 +129,7 @@ class _FinalResultsState extends State<FinalResults> {
                                               visualDensity:
                                                   VisualDensity.compact,
                                               title: Text(
-                                                '${indexS + 1}. (${students.where((element) => element.finalRevaluation != null && element.finalRevaluation! < 5).elementAt(indexS).classes.value!.name})   ${students.where((element) => element.finalRevaluation != null && element.finalRevaluation! >= 5).elementAt(indexS).name}',
+                                                '${indexS + 1}. (${students.where((element) => element.finalRevaluation != null && element.finalRevaluation! >= 5).elementAt(indexS).classes.value!.name})   ${students.where((element) => element.finalRevaluation != null && element.finalRevaluation! >= 5).elementAt(indexS).name}',
                                                 style: const TextStyle(
                                                     color: Colors.white),
                                               ),

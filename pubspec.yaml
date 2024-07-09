@@ -50,6 +50,7 @@ dependencies:
   permission_handler: ^11.3.1
   share_extend: ^2.0.0
   intl: ^0.19.0
+ 
   
  
   
@@ -93,7 +94,13 @@ flutter:
     - assets/image/logoMaua1.gif
     - assets/image/predioPrincipal.jpg
     - assets/image/class_manager_logo2.jpg
-    - assets/image/pdf.png
+    - assets/image/class_manager_logo11.jpg
+    - assets/image/nome01.png
+    - assets/image/nome02.png
+    - assets/image/fundo01.png
+    - assets/image/fundo02.png
+    - assets/image/fundo03.png
+    - assets/image/fundo04.png
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 

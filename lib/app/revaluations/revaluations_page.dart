@@ -78,7 +78,7 @@ class _RevaluationPageState extends State<RevaluationPage> {
                             child: Padding(
                               padding: EdgeInsets.all(8.0),
                               child: Text(
-                                'RE-EVALUATIONS',
+                                'REVALUATIONS',
                                 style: TextStyle(
                                     fontSize: 30, fontWeight: FontWeight.bold),
                               ),

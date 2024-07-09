@@ -241,12 +241,28 @@ pw.Widget pdfPageInfo(Classes disciplineClass) {
                                   pw.SizedBox(
                                     width: 50,
                                     child: pw.Center(
-                                      child: pw.Text(
-                                        'Final: ${classStudents[index].finalRevaluation ?? '___'}',
-                                        style: const pw.TextStyle(
-                                          fontSize: 8,
-                                        ),
-                                      ),
+                                      child: classStudents[index]
+                                              .revaluations
+                                              .any((element) =>
+                                                  element != null &&
+                                                  element < 6)
+                                          ? pw.Text(
+                                              'Final: ${classStudents[index].finalRevaluation ?? '___'}',
+                                              style: const pw.TextStyle(
+                                                fontSize: 8,
+                                              ),
+                                            )
+                                          : pw.Text(
+                                              '',
+                                              style: const pw.TextStyle(
+                                                fontSize: 8,
+                                              ),
+                                              // child: pw.Text(
+                                              //   'Final: ${classStudents[index].finalRevaluation ?? '___'}',
+                                              //   style: const pw.TextStyle(
+                                              //     fontSize: 8,
+                                              //   ),
+                                            ),
                                     ),
                                   ),
                                 ]),

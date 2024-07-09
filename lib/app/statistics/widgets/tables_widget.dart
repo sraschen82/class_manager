@@ -95,7 +95,7 @@ class TablesWidget extends StatelessWidget {
         const Padding(
           padding: EdgeInsets.fromLTRB(8, 10, 8, 8),
           child: Text(
-            'Analysis of students in re-evaluation',
+            'Analysis of students in revaluation',
             style: TextStyle(color: Colors.white),
           ),
         ),

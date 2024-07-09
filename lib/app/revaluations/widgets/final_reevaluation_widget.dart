@@ -65,7 +65,7 @@ Widget finalRevaluationWidget(
                     const SizedBox(
                       width: 180,
                       child: Text(
-                        'FINAL RE-EVALUATION',
+                        'FINAL REVALUATION',
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 15,
